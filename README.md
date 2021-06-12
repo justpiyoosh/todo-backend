@@ -20,5 +20,7 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-
-* ...
+  * Change the stack of app :
+      heroku stack:set heroku-18 -a=todobackend4
+  * After that run this command to migrate : 
+      heroku run rake db:migrate
