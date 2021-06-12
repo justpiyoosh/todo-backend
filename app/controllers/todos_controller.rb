@@ -1,6 +1,11 @@
 class TodosController < ApplicationController
     skip_before_action :verify_authenticity_token
 
+    def index
+      message = {:data => "Welcome on Homepage!!"}
+      render json: message
+    end
+
     def todos_list
         list = Todo.all
         render json: list
