@@ -11,6 +11,17 @@ class TodosController < ApplicationController
         render json: list
     end
 
+    def detail
+      isExist = Todo.exists?(id: params[:id])
+      if isExist
+        data = Todo.find(params[:id])
+        render json: data
+      else 
+        data = {"message" => "Couldn't find Todo with 'id'=#{params[:id]} in our DB"}
+        render json: data
+      end
+    end
+
     def create
         @todo = Todo.new(title: params["title"] , description: params["description"] , isComplete: params["isComplete"])
         if @todo.save
