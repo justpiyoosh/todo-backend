@@ -25,7 +25,7 @@ class TodosController < ApplicationController
 
   def edit
     @todo = Todo.find(params[:id])
-    @todo = Todo.update(title: params["title"] , description: params["description"] , isComplete: params["isComplete"])
+    @todo.update(title: params["title"] , description: params["description"] , isComplete: params["isComplete"])
     msg = { :data => "todo updated succesfully!!"}
     render :json => msg
   end
